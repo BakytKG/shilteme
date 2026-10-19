@@ -126,6 +126,7 @@ PAGE = """<!doctype html>
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#182e14">
+<meta http-equiv="refresh" content="{refresh}; url={form}">
 <link rel="preload" as="image" href="../photos/{slug}.jpg">
 <style>
 *{{box-sizing:border-box}}
@@ -164,7 +165,9 @@ background:#7cc242;color:#102008;font-weight:700;font-size:18px;text-decoration:
 </html>
 """
 
-DELAY_MS = 3000
+# 0 = шилтеме дароо формага өтөт (сүрөт WhatsApp карточкасында көрүнөт).
+# Мисалы 3000 коюлса, адегенде мугалимдин сүрөтү бар барак 3 секунд көрүнөт.
+DELAY_MS = 0
 
 
 def make_page(t):
@@ -185,6 +188,7 @@ def make_page(t):
             name=html.escape(t["name"]),
             role=html.escape(t["role"]),
             delay=DELAY_MS,
+            refresh=DELAY_MS // 1000,
         ),
         encoding="utf-8",
     )
