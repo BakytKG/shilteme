@@ -125,19 +125,46 @@ PAGE = """<!doctype html>
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="refresh" content="0; url={form}">
-<script>location.replace({form_js});</script>
+<meta name="theme-color" content="#182e14">
+<link rel="preload" as="image" href="../photos/{slug}.jpg">
 <style>
-body{{margin:0;min-height:100vh;display:grid;place-items:center;background:#182e14;color:#fff;
-font:18px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:24px;box-sizing:border-box}}
-a{{color:#7cc242}}
+*{{box-sizing:border-box}}
+html,body{{margin:0;background:#182e14;color:#fff}}
+body{{font:17px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;
+display:flex;justify-content:center;
+padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}}
+main{{width:100%;max-width:420px;display:flex;flex-direction:column;gap:16px}}
+.school{{font-size:13px;font-weight:700;letter-spacing:.08em;color:#7cc242}}
+.photo{{width:100%;height:min(48vh,420px);object-fit:cover;object-position:center 22%;border-radius:20px;
+background:#22401c;display:block;border-bottom:6px solid #7cc242}}
+h1{{margin:0;font-size:24px;line-height:1.2;text-wrap:balance}}
+.role{{margin:0;color:#c4d6bc}}
+.bar{{height:6px;border-radius:3px;background:#2c4a25;overflow:hidden}}
+.bar i{{display:block;height:100%;width:0;background:#7cc242;animation:fill {delay}ms linear forwards}}
+@keyframes fill{{to{{width:100%}}}}
+.go{{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:16px;
+background:#7cc242;color:#102008;font-weight:700;font-size:18px;text-decoration:none}}
+.go:focus-visible{{outline:3px solid #fff;outline-offset:3px}}
+.note{{margin:0;text-align:center;font-size:14px;color:#9fb59a}}
+@media (prefers-reduced-motion:reduce){{.bar i{{animation:none;width:100%}}}}
 </style>
 </head>
 <body>
-<p>Суроолор ачылып жатат…<br><a href="{form}">Ачылбаса, бул жерди басыңыз</a></p>
+<main>
+<div class="school">БИЛИМ ЖОЛУ МЕКТЕБИ</div>
+<img class="photo" src="../photos/{slug}.jpg" alt="{name}" width="600" height="800">
+<h1>{name}</h1>
+<p class="role">{role}</p>
+<div class="bar" aria-hidden="true"><i></i></div>
+<a class="go" href="{form}">Баа берүү</a>
+<p class="note">5 суроо, 1 мүнөт. Атыңыз жазылбайт.</p>
+</main>
+<script>setTimeout(function(){{location.replace({form_js});}}, {delay});</script>
 </body>
 </html>
 """
+
+DELAY_MS = 3000
 
 
 def make_page(t):
@@ -154,6 +181,10 @@ def make_page(t):
             image=f"{SITE_URL}/og/{t['slug']}.jpg",
             form=html.escape(t["form"]),
             form_js=json.dumps(t["form"]),
+            slug=t["slug"],
+            name=html.escape(t["name"]),
+            role=html.escape(t["role"]),
+            delay=DELAY_MS,
         ),
         encoding="utf-8",
     )
