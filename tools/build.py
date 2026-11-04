@@ -57,14 +57,23 @@ def wrap(draw, text, fnt, width):
 
 def make_card(t):
     card = Image.new("RGB", (W, H), BG)
-    photo = ImageOps.fit(
-        Image.open(ROOT / "photos" / f"{t['slug']}.jpg").convert("RGB"),
-        (PHOTO_W, H),
-        method=Image.LANCZOS,
-        centering=(0.5, 0.3),
-    )
-    card.paste(photo, (0, 0))
+    photo_path = ROOT / "photos" / f"{t['slug']}.jpg"
     d = ImageDraw.Draw(card)
+    if photo_path.exists():
+        photo = ImageOps.fit(
+            Image.open(photo_path).convert("RGB"),
+            (PHOTO_W, H),
+            method=Image.LANCZOS,
+            centering=(0.5, 0.3),
+        )
+        card.paste(photo, (0, 0))
+    else:
+        # Сүрөт али жок: аты-жөнүнүн баш тамгалары бар жашыл тегерек.
+        d.rectangle([0, 0, PHOTO_W, H], fill=(34, 64, 28))
+        cx, cy, r = PHOTO_W // 2, H // 2, 150
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=GREEN)
+        initials = "".join(w[0] for w in t["name"].split()[:2]).upper()
+        d.text((cx, cy), initials, font=font("Unbounded.ttf", 88, "Bold"), fill=BG, anchor="mm")
     d.rectangle([PHOTO_W, 0, PHOTO_W + 10, H], fill=GREEN)
 
     x = PHOTO_W + 64
