@@ -86,7 +86,10 @@ def make_card(t):
         d.rectangle([0, 0, PHOTO_W, H], fill=(34, 64, 28))
         cx, cy, r = PHOTO_W // 2, H // 2, 150
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=GREEN)
-        initials = "".join(w[0] for w in t["name"].split()[:2]).upper()
+        parts = t["name"].split()
+        if len(parts) >= 3 and parts[1].lower() in ("кызы", "уулу"):
+            parts = [parts[0], parts[2]]  # «Замир кызы Ардак» → «ЗА»
+        initials = "".join(w[0] for w in parts[:2]).upper()
         d.text((cx, cy), initials, font=display_font(initials, 88), fill=BG, anchor="mm")
     d.rectangle([PHOTO_W, 0, PHOTO_W + 10, H], fill=GREEN)
 
