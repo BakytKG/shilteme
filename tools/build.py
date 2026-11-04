@@ -40,6 +40,20 @@ def font(name, size, variation=None):
     return f
 
 
+_UNBOUNDED_CHARS = None
+
+
+def display_font(text, size):
+    """Unbounded'да кыргыз тамгалары (ң, ө, ү) жок. Андай аттар PT Sans Bold менен жазылат."""
+    global _UNBOUNDED_CHARS
+    if _UNBOUNDED_CHARS is None:
+        from fontTools.ttLib import TTFont
+        _UNBOUNDED_CHARS = set(TTFont(str(FONTS / "Unbounded.ttf")).getBestCmap())
+    if all(ord(c) in _UNBOUNDED_CHARS for c in text if not c.isspace()):
+        return font("Unbounded.ttf", size, "Bold")
+    return font("PT_Sans-Web-Bold.ttf", int(size * 1.2))
+
+
 def wrap(draw, text, fnt, width):
     lines, line = [], ""
     for word in text.split():
@@ -73,7 +87,7 @@ def make_card(t):
         cx, cy, r = PHOTO_W // 2, H // 2, 150
         d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=GREEN)
         initials = "".join(w[0] for w in t["name"].split()[:2]).upper()
-        d.text((cx, cy), initials, font=font("Unbounded.ttf", 88, "Bold"), fill=BG, anchor="mm")
+        d.text((cx, cy), initials, font=display_font(initials, 88), fill=BG, anchor="mm")
     d.rectangle([PHOTO_W, 0, PHOTO_W + 10, H], fill=GREEN)
 
     x = PHOTO_W + 64
@@ -83,11 +97,11 @@ def make_card(t):
     d.text((x, 66), "БИЛИМ ЖОЛУ МЕКТЕБИ", font=small, fill=GREEN, spacing=4)
 
     size = 50
-    name_font = font("Unbounded.ttf", size, "Bold")
+    name_font = display_font(t["name"], size)
     lines = wrap(d, t["name"], name_font, text_w)
     while len(lines) > 3 and size > 34:
         size -= 4
-        name_font = font("Unbounded.ttf", size, "Bold")
+        name_font = display_font(t["name"], size)
         lines = wrap(d, t["name"], name_font, text_w)
     y = 128
     for ln in lines:
