@@ -220,12 +220,148 @@ def make_page(t):
     )
 
 
+def initials_of(name):
+    parts = name.split()
+    if len(parts) >= 3 and parts[1].lower() in ("кызы", "уулу"):
+        parts = [parts[0], parts[2]]
+    return "".join(w[0] for w in parts[:2]).upper()
+
+
+def make_index_card():
+    """Жалпы шилтеменин WhatsApp карточкасы (бардык класстар үчүн)."""
+    card = Image.new("RGB", (W, H), BG)
+    d = ImageDraw.Draw(card)
+    d.rectangle([0, 0, 18, H], fill=GREEN)
+    x = 96
+    d.text((x, 92), "БИЛИМ ЖОЛУ МЕКТЕБИ", font=font("PT_Sans-Web-Bold.ttf", 30), fill=GREEN)
+    title_font = display_font("Класс жетекчиңизге баа бериңиз", 64)
+    y = 160
+    for ln in wrap(d, "Класс жетекчиңизге баа бериңиз", title_font, W - x - 80):
+        d.text((x, y), ln, font=title_font, fill=WHITE)
+        y += 86
+    d.text((x, y + 18), "1–4-класстардын ата-энелери үчүн. Балаңыздын классын тандаңыз.",
+           font=font("PT_Sans-Web-Regular.ttf", 32), fill=SOFT)
+    cta_font = font("PT_Sans-Web-Bold.ttf", 32)
+    cta = "Классты тандоо"
+    tw = d.textlength(cta, font=cta_font)
+    bx, by, bh = x, H - 70 - 72, 72
+    arrow_w = 30
+    bw = tw + 32 + 18 + arrow_w + 32
+    d.rounded_rectangle([bx, by, bx + bw, by + bh], radius=36, fill=GREEN)
+    d.text((bx + 32, by + bh / 2), cta, font=cta_font, fill=BG, anchor="lm")
+    ax, ay = bx + 32 + tw + 18, by + bh / 2
+    d.line([(ax, ay), (ax + arrow_w, ay)], fill=BG, width=4)
+    d.line([(ax + arrow_w - 11, ay - 11), (ax + arrow_w, ay), (ax + arrow_w - 11, ay + 11)], fill=BG, width=4, joint="curve")
+    d.text((bx + bw + 32, by + bh / 2), "5 суроо · 1 мүнөт · атыңыз жазылбайт",
+           font=font("PT_Sans-Web-Regular.ttf", 24), fill=SOFT, anchor="lm")
+    card.save(ROOT / "og" / "index.jpg", quality=85, optimize=True, progressive=True)
+
+
+INDEX = """<!doctype html>
+<html lang="ky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Класс жетекчиңизге баа бериңиз</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="{desc}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Билим Жолу мектеби">
+<meta property="og:title" content="Класс жетекчиңизге баа бериңиз">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#182e14">
+<style>
+*{{box-sizing:border-box}}
+html,body{{margin:0;background:#182e14;color:#fff}}
+body{{font:17px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}}
+main{{max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:18px}}
+.school{{font-size:13px;font-weight:700;letter-spacing:.08em;color:#7cc242}}
+h1{{margin:0;font-size:26px;line-height:1.2;text-wrap:balance}}
+.lead{{margin:0;color:#c4d6bc}}
+h2{{margin:8px 0 0;font-size:13px;font-weight:700;letter-spacing:.08em;color:#9fb59a;text-transform:uppercase}}
+ul{{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}}
+a.row{{display:flex;align-items:center;gap:14px;padding:10px 14px 10px 10px;border-radius:16px;
+background:#22401c;color:#fff;text-decoration:none;min-height:68px}}
+a.row:active{{background:#2c5224}}
+a.row:focus-visible{{outline:3px solid #7cc242;outline-offset:2px}}
+.av{{width:48px;height:48px;border-radius:50%;flex:none;object-fit:cover;object-position:center 22%;background:#7cc242;
+display:grid;place-items:center;color:#182e14;font-weight:800;font-size:17px}}
+.txt{{min-width:0;flex:1}}
+.cls{{display:block;font-weight:800;font-size:20px}}
+.who{{display:block;font-size:14px;color:#c4d6bc}}
+.go{{flex:none;color:#7cc242;font-size:22px}}
+.note{{margin:4px 0 0;text-align:center;font-size:14px;color:#9fb59a}}
+</style>
+</head>
+<body>
+<main>
+<div class="school">БИЛИМ ЖОЛУ МЕКТЕБИ</div>
+<h1>Класс жетекчиңизге баа бериңиз</h1>
+<p class="lead">Балаңыздын классын тандаңыз. 5 суроо, 1 мүнөт. Атыңыз жазылбайт.</p>
+{groups}
+<p class="note">Эки балаңыз ар башка класста окуса, ар бир класс жетекчиге өзүнчө баа бериңиз.</p>
+</main>
+</body>
+</html>
+"""
+
+
+def class_key(c):
+    grade, rest = c.split("-", 1)
+    return (int(grade), rest)
+
+
+def make_index(teachers):
+    make_index_card()
+    rows = []
+    for t in teachers:
+        for c in t["classes"]:
+            rows.append((c, t))
+    rows.sort(key=lambda r: class_key(r[0]))
+    groups, current = [], None
+    for c, t in rows:
+        grade = c.split("-", 1)[0]
+        if grade != current:
+            if current is not None:
+                groups.append("</ul>")
+            groups.append(f"<h2>{grade}-класстар</h2>\n<ul>")
+            current = grade
+        if (ROOT / "photos" / f"{t['slug']}.jpg").exists():
+            av = f'<img class="av" src="photos/{t["slug"]}.jpg" alt="" width="48" height="48" loading="lazy">'
+        else:
+            av = f'<span class="av" aria-hidden="true">{html.escape(initials_of(t["name"]))}</span>'
+        groups.append(
+            f'<li><a class="row" href="{html.escape(t["form"])}">{av}'
+            f'<span class="txt"><span class="cls">{html.escape(c)}</span>'
+            f'<span class="who">{html.escape(t["name"])}</span></span>'
+            f'<span class="go" aria-hidden="true">›</span></a></li>'
+        )
+    groups.append("</ul>")
+    (ROOT / "index.html").write_text(
+        INDEX.format(
+            desc="1–4-класстардын ата-энелери үчүн. Балаңыздын классын тандап, класс жетекчиге баа бериңиз.",
+            url=f"{SITE_URL}/",
+            image=f"{SITE_URL}/og/index.jpg",
+            groups="\n".join(groups),
+        ),
+        encoding="utf-8",
+    )
+
+
 def main():
     teachers = json.loads((ROOT / "teachers.json").read_text(encoding="utf-8"))
     for t in teachers:
         make_card(t)
         make_page(t)
         print(f"{SITE_URL}/{t['slug']}/")
+    make_index(teachers)
+    print(f"{SITE_URL}/  (жалпы шилтеме)")
 
 
 if __name__ == "__main__":

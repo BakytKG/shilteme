@@ -3,90 +3,141 @@
     "slug": "ashymbaeva",
     "name": "Ашымбаева Чынара Шамшаровна",
     "role": "3-А, 3-В класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagBpWc3htq5irinf/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagBpWc3htq5irinf/form",
+    "classes": [
+      "3-А (12)",
+      "3-В (11)"
+    ]
   },
   {
     "slug": "seitova",
     "name": "Сеитова Гузаль Артековна",
     "role": "1-А класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagQkL2jleo5yDhDk/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagQkL2jleo5yDhDk/form",
+    "classes": [
+      "1-А"
+    ]
   },
   {
     "slug": "zhaisanova",
     "name": "Жайсанова Айзада Муканбетовна",
     "role": "1-Б класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagWzRB78RfQy6IEV/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagWzRB78RfQy6IEV/form",
+    "classes": [
+      "1-Б"
+    ]
   },
   {
     "slug": "shonkoeva",
     "name": "Шоңкоева Ира Надырбековна",
     "role": "1-В класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagaPYUGGP3A7kfRk/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagaPYUGGP3A7kfRk/form",
+    "classes": [
+      "1-В"
+    ]
   },
   {
     "slug": "zamir-kyzy",
     "name": "Замир кызы Ардак",
     "role": "1-Г класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/paglCWUYzLLTLsnP5/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/paglCWUYzLLTLsnP5/form",
+    "classes": [
+      "1-Г"
+    ]
   },
   {
     "slug": "mairambek-kyzy",
     "name": "Майрамбек кызы Фатима",
     "role": "1-Д класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagcAgpOOVUT2y4C5/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagcAgpOOVUT2y4C5/form",
+    "classes": [
+      "1-Д"
+    ]
   },
   {
     "slug": "baigashkaeva",
     "name": "Байгашкаева Жанара Мураповна",
     "role": "2-А, 2-Г класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pag2M0FmFedjDMo6n/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pag2M0FmFedjDMo6n/form",
+    "classes": [
+      "2-А",
+      "2-Г"
+    ]
   },
   {
     "slug": "niyazova",
     "name": "Ниязова Айзада Кубанычбековна",
     "role": "2-В класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagtKs6t2v6pj3g1w/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagtKs6t2v6pj3g1w/form",
+    "classes": [
+      "2-В"
+    ]
   },
   {
     "slug": "derbishalieva",
     "name": "Дербишалиева Чолпонай Женишбековна",
     "role": "2-Д класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagBb39WAqjRGC6Ce/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagBb39WAqjRGC6Ce/form",
+    "classes": [
+      "2-Д"
+    ]
   },
   {
     "slug": "omuralieva",
     "name": "Омуралиева Базаркуль Рыскуловна",
     "role": "3-Б, 4-В класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagf0D2XBlgIzK01r/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagf0D2XBlgIzK01r/form",
+    "classes": [
+      "3-Б (12)",
+      "4-В"
+    ]
   },
   {
     "slug": "aidarova",
     "name": "Айдарова Асылкан Туратбековна",
     "role": "3-А, 3-В класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/paglKvDTciBJUycWy/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/paglKvDTciBJUycWy/form",
+    "classes": [
+      "3-А (11)",
+      "3-В (12)"
+    ]
   },
   {
     "slug": "azhybaeva",
     "name": "Ажыбаева Алина Бакытовна",
     "role": "3-Г, 3-Е класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/page3g2TZtugt8gDa/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/page3g2TZtugt8gDa/form",
+    "classes": [
+      "3-Г (12)",
+      "3-Е (11)"
+    ]
   },
   {
     "slug": "mamyrbaeva",
     "name": "Мамырбаева Аймээрим Эсенбековна",
     "role": "3-Г, 3-Е класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagfBIThALqrq4CKo/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagfBIThALqrq4CKo/form",
+    "classes": [
+      "3-Г (11)",
+      "3-Е (12)"
+    ]
   },
   {
     "slug": "madabaeva",
     "name": "Мадабаева Жумабүбү Төлөгөновна",
     "role": "3-Б класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagRt9RFZRKfiKpzc/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pagRt9RFZRKfiKpzc/form",
+    "classes": [
+      "3-Б (11)"
+    ]
   },
   {
     "slug": "sharipbaeva",
     "name": "Шарипбаева Баарбүбү Содалиевна",
     "role": "4-А класс жетекчиси",
-    "form": "https://airtable.com/appss2GhR4Xpse3uw/pag4LORwRr0EbZLAG/form"
+    "form": "https://airtable.com/appss2GhR4Xpse3uw/pag4LORwRr0EbZLAG/form",
+    "classes": [
+      "4-А"
+    ]
   }
 ]
