@@ -53,10 +53,6 @@
       "name": "Вайсси Абу-Бакир",
       "form": "https://airtable.com/appss2GhR4Xpse3uw/pagaokjj4ml40Gx9U/form"
     },
-    "sakenova": {
-      "name": "Сакенова Акбермет Алишеровна",
-      "form": "https://airtable.com/appss2GhR4Xpse3uw/pagx9MAod4Mp241qF/form"
-    },
     "toktogulova": {
       "name": "Токтогулова Диана Рахатовна",
       "form": "https://airtable.com/appss2GhR4Xpse3uw/pagQpDkV8lVqMAJ5x/form"
@@ -136,6 +132,10 @@
     "ibragimova-n": {
       "name": "Ибрагимова Назгүл Эстебесовна",
       "form": "https://airtable.com/appss2GhR4Xpse3uw/pagePLdwh9J1lQKSY/form"
+    },
+    "emilbekov": {
+      "name": "Эмилбеков Бакыт Эмилбекович",
+      "form": "https://airtable.com/appss2GhR4Xpse3uw/pagbazHagq7uZhYHn/form"
     }
   },
   "classes": [
@@ -782,6 +782,10 @@
         [
           "Кружок",
           "nurmanbet-uulu"
+        ],
+        [
+          "Акыл эмгегинин маданияты",
+          "emilbekov"
         ],
         [
           "Дене тарбия",
