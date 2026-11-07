@@ -422,11 +422,17 @@ def make_class_card(c, people):
         d.text((x, y), ln, font=tf, fill=WHITE)
         y += 66
     # Мугалимдердин тегерек сүрөттөрү (бири-биринин үстүнө)
-    r, step = 31, 68
-    shown = people[:9]
+    r, step = 27, 60
+    shown = people if len(people) <= 10 else people[:9]
     ay = y + 60
     for i, (slug, t) in enumerate(shown):
         avatar(card, d, slug, t["name"], x + r + i * step, ay, r)
+    rest = len(people) - len(shown)
+    if rest:
+        cx = x + r + len(shown) * step
+        d.ellipse([cx - r - 5, ay - r - 5, cx + r + 5, ay + r + 5], fill=BG)
+        d.ellipse([cx - r, ay - r, cx + r, ay + r], fill=(44, 82, 36))
+        d.text((cx, ay), f"+{rest}", font=font("PT_Sans-Web-Bold.ttf", 22), fill=WHITE, anchor="mm")
     cta(d, x, H - 66 - 72, "Баа берүү", f"{len(people)} мугалим · 1 мүнөттөн")
     card.save(ROOT / "og" / f"{c['slug']}.jpg", quality=85, optimize=True, progressive=True)
 
