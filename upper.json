@@ -1,0 +1,89 @@
+{
+  "_comment": "5–9-класстардын окуучулары үчүн. teachers: предметтик мугалимдер (slug → аты, Airtable формасы). classes: ар бир класста ким кайсы предметти окутат (Airtable «Жүктөм» таблицасынан). form бош болсо, мугалим барактарда көрсөтүлбөйт.",
+  "teachers": {
+    "toktosunova": {"name": "Токтосунова Гүлайым Сыдыковна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pag6FsJDCH0Vjwm6h/form"},
+    "muktarbek-kyzy": {"name": "Муктарбек кызы Мунира", "form": "https://airtable.com/appss2GhR4Xpse3uw/pag9D2bmUX8fa7o4P/form"},
+    "baataeva": {"name": "Баатаева Бактыгүл Темирбаевна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagXrIZaIjOYKVB13/form"},
+    "taalaibekova-n": {"name": "Таалайбекова Нуржамал Таалайбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagjCZrtfIIKsdGPo/form"},
+    "baktybek-kyzy": {"name": "Бактыбек кызы Каныкей", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagPvX6ghYniMQ7YB/form"},
+    "bekulova": {"name": "Бекулова Чолпон Асантаевна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagA5qHAGb5GdF2Ep/form"},
+    "zhapashova": {"name": "Жапашова Максат Абдикуловна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagEhCuP9OfUmbTxR/form"},
+    "taalaibekova-zh": {"name": "Таалайбекова Жазгүл Таалайбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagLbO2igY6p0BYgI/form"},
+    "aalieva": {"name": "Аалиева Адина Орозобековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagkerTysTHf9N3YU/form"},
+    "abdykalykov": {"name": "Абдыкалыков Дубанбек Бексултанович", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagHqiwJkFDeJE5Wl/form"},
+    "akmatova": {"name": "Акматова Зуурабубу Аляскаровна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagwhME7pt4D9aXjf/form"},
+    "busurmankulova": {"name": "Бусурманкулова Шахноза Сухробовна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagkpAPTwJnt7747v/form"},
+    "vaissi": {"name": "Вайсси Абу-Бакир", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagaokjj4ml40Gx9U/form"},
+    "sakenova": {"name": "Сакенова Акбермет Алишеровна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagx9MAod4Mp241qF/form"},
+    "toktogulova": {"name": "Токтогулова Диана Рахатовна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagQpDkV8lVqMAJ5x/form"},
+    "isabekova": {"name": "Исабекова Улугай Мыктыбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pag4sVz7TyneEswoL/form"},
+    "shadybekova": {"name": "Шадыбекова Жыпаркул Туйтановна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagNgTADLn4mDTFsE/form"},
+    "kanatbekova": {"name": "Канатбекова Динара Канатбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagkKy5VeViPfChQy/form"},
+    "bayalieva": {"name": "Баялиева Аида Баянбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagHi6t9keIznCu3j/form"},
+    "aidaralieva": {"name": "Айдаралиева Гүлпери Шакировна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagKshtkodvZdbZF2/form"},
+    "asanova": {"name": "Асанова Венера Асылбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagvQfNi3pLSB62WB/form"},
+    "kenzhebaeva": {"name": "Кенжебаева Мээрим Садыровна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagSpnPP7sboa00Ts/form"},
+    "kopshokova": {"name": "Көпшөкова Бегай Азыкбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pag0T4G4oQASsAIdw/form"},
+    "kelgenbai-kyzy": {"name": "Келгенбай кызы Жайнагүл", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagXh0TBCaq0ZTMMb/form"},
+    "kozhomat-uulu": {"name": "Кожомат уулу Тилек", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagCFVf4NOt1ujrMJ/form"},
+    "abdyrazak-kyzy": {"name": "Абдыразак кызы Машхура", "form": "https://airtable.com/appss2GhR4Xpse3uw/pag2thEp2G95imoU1/form"},
+    "ibragimova-m": {"name": "Ибрагимова Мунира Пулатжановна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagLMKjjcYfC2qXMM/form"},
+    "nurmanbet-uulu": {"name": "Нурманбет уулу Кубатбек", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagFXoAo25Tah7xWv/form"},
+    "orozalieva": {"name": "Орозалиева Аяна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pags1vgDcDlDY1Pqc/form"},
+    "oruzbaeva": {"name": "Орузбаева Нургуль Ишенбековна", "form": "", "_note": "Формадагы «Мугалим» Кенжебаевага коюлуп калган. Оңдолгондо форманы кошуу: https://airtable.com/appss2GhR4Xpse3uw/pagvBpXRU1TaZpqzY/form"},
+    "nuruibekova": {"name": "Нуруйбекова Кулнара Абасбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pag5QZ7hg9cNLen23/form"},
+    "turdalieva": {"name": "Турдалиева Гүлүм Моңолбековна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagne8rsxLelTN1Ep/form"},
+    "abdyldaev": {"name": "Абдылдаев Ислам Нурбекович", "form": "https://airtable.com/appss2GhR4Xpse3uw/pag07ueeqJ3uOzXcd/form"},
+    "ibragimova-n": {"name": "Ибрагимова Назгүл Эстебесовна", "form": "https://airtable.com/appss2GhR4Xpse3uw/pagePLdwh9J1lQKSY/form"}
+  },
+  "classes": [
+    {"slug": "5a", "name": "5-А", "subjects": [
+      ["Кыргыз тили", "toktosunova"], ["Орус тили", "baktybek-kyzy"], ["Англис тили", "akmatova"],
+      ["Математика", "toktogulova"], ["Табият таануу", "aidaralieva"], ["Тарых", "kelgenbai-kyzy"]]},
+    {"slug": "5b", "name": "5-Б", "subjects": [
+      ["Кыргыз тили", "taalaibekova-n"], ["Орус тили", "baktybek-kyzy"], ["Англис тили", "aalieva"],
+      ["Математика", "toktogulova"], ["Табият таануу", "aidaralieva"], ["Тарых", "kelgenbai-kyzy"]]},
+    {"slug": "5v", "name": "5-В", "subjects": [
+      ["Кыргыз тили", "muktarbek-kyzy"], ["Орус тили", "baktybek-kyzy"], ["Англис тили", "aalieva"],
+      ["Математика", "toktogulova"], ["Табият таануу", "aidaralieva"], ["Тарых", "kelgenbai-kyzy"]]},
+    {"slug": "5g", "name": "5-Г", "subjects": [
+      ["Кыргыз тили", "taalaibekova-n"], ["Орус тили", "baktybek-kyzy"], ["Англис тили", "abdykalykov"],
+      ["Математика", "toktogulova"], ["Табият таануу", "aidaralieva"], ["Тарых", "kelgenbai-kyzy"]]},
+    {"slug": "7a-11", "name": "7-А (11)", "subjects": [
+      ["Кыргыз тили", "toktosunova"], ["Орус тили", "bekulova"], ["Англис тили", "akmatova"],
+      ["Математика", "toktogulova"], ["Физика", "kanatbekova"], ["Химия", "bayalieva"],
+      ["Биология", "aidaralieva"], ["География", "kenzhebaeva"], ["Тарых", "kopshokova"]]},
+    {"slug": "7a-12", "name": "7-А (12)", "subjects": [
+      ["Кыргыз тили", "muktarbek-kyzy"], ["Орус тили", "bekulova"], ["Англис тили", "aalieva"],
+      ["Математика", "isabekova"], ["Физика", "kanatbekova"], ["Химия", "bayalieva"],
+      ["Биология", "aidaralieva"], ["География", "kenzhebaeva"], ["Тарых", "kopshokova"]]},
+    {"slug": "7b", "name": "7-Б (11)", "subjects": [
+      ["Кыргыз тили", "muktarbek-kyzy"], ["Орус тили", "bekulova"], ["Англис тили", "akmatova"],
+      ["Математика", "toktogulova"], ["Физика", "kanatbekova"], ["Химия", "bayalieva"],
+      ["Биология", "aidaralieva"], ["География", "kenzhebaeva"], ["Тарых", "kopshokova"]]},
+    {"slug": "7v-11", "name": "7-В (11)", "subjects": [
+      ["Кыргыз тили", "toktosunova"], ["Орус тили", "baktybek-kyzy"], ["Англис тили", "abdykalykov"],
+      ["Математика", "isabekova"], ["Физика", "kanatbekova"], ["Химия", "bayalieva"],
+      ["Биология", "asanova"], ["География", "kenzhebaeva"], ["Тарых", "kozhomat-uulu"]]},
+    {"slug": "7v-12", "name": "7-В (12)", "subjects": [
+      ["Кыргыз тили", "muktarbek-kyzy"], ["Орус тили", "bekulova"], ["Англис тили", "abdykalykov"],
+      ["Математика", "isabekova"], ["Физика", "kanatbekova"], ["Химия", "bayalieva"],
+      ["Биология", "aidaralieva"], ["География", "kenzhebaeva"], ["Тарых", "kopshokova"]]},
+    {"slug": "8a", "name": "8-А", "subjects": [
+      ["Кыргыз тили", "toktosunova"], ["Орус тили", "bekulova"], ["Англис тили", "aalieva"],
+      ["Математика", "isabekova"], ["Физика", "kanatbekova"], ["Химия", "bayalieva"],
+      ["Биология", "asanova"], ["География", "kenzhebaeva"], ["Тарых", "kopshokova"]]},
+    {"slug": "8v", "name": "8-В", "subjects": [
+      ["Кыргыз тили", "toktosunova"], ["Орус тили", "bekulova"], ["Англис тили", "abdykalykov"],
+      ["Математика", "isabekova"], ["Физика", "kanatbekova"], ["Химия", "bayalieva"],
+      ["Биология", "asanova"], ["География", "kenzhebaeva"], ["Тарых", "kopshokova"]]},
+    {"slug": "9a", "name": "9-А", "subjects": [
+      ["Кыргыз тили", "baataeva"], ["Орус тили", "bekulova"], ["Англис тили", "akmatova"],
+      ["Алгебра", "shadybekova"], ["Геометрия", "shadybekova"], ["Физика", "kanatbekova"],
+      ["Химия", "bayalieva"], ["Биология", "asanova"], ["География", "kenzhebaeva"], ["Тарых", "kopshokova"]]},
+    {"slug": "9v", "name": "9-В", "subjects": [
+      ["Кыргыз тили", "baataeva"], ["Орус тили", "bekulova"], ["Англис тили", "abdykalykov"],
+      ["Алгебра", "shadybekova"], ["Геометрия", "shadybekova"], ["Физика", "kanatbekova"],
+      ["Химия", "bayalieva"], ["Биология", "asanova"], ["География", "kenzhebaeva"], ["Тарых", "kozhomat-uulu"]]}
+  ]
+}
