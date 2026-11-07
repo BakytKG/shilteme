@@ -48,13 +48,24 @@ display:grid;place-items:center;color:#182e14;font-weight:800;font-size:17px}
 .row.done .subj,.row.done .who{opacity:.7}
 .note{margin:4px 0 0;text-align:center;font-size:14px;color:#9fb59a}
 .note a{color:#c4d6bc}
+#ov{position:fixed;inset:0;z-index:10;background:#fff;display:none;flex-direction:column}
+#ov.on{display:flex}
+#ov .bar2{flex:none;display:flex;align-items:center;gap:10px;background:#182e14;color:#fff;
+padding:max(8px,env(safe-area-inset-top)) 12px 8px 8px}
+#back{flex:none;display:flex;align-items:center;gap:4px;min-height:44px;padding:0 14px 0 10px;border:0;border-radius:12px;
+background:#7cc242;color:#102008;font:700 16px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#back:focus-visible{outline:3px solid #fff;outline-offset:2px}
+#ovt{min-width:0;font-size:14px;line-height:1.25;color:#c4d6bc;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+#ovt b{color:#fff}
+#ov iframe{flex:1;width:100%;border:0;background:#fff}
+html.lock,html.lock body{overflow:hidden}
 </style>
 </head>
 <body>
 <main>
 <div class="school">БИЛИМ ЖОЛУ МЕКТЕБИ</div>
 <div class="head"><div class="badge">8-В</div><h1>Мугалимдериңизге баа бериңиз</h1></div>
-<p class="lead">Ар бир мугалимди басып, 5 суроого жооп бериңиз. Атыңыз жазылбайт. Бүткөндөн кийин ушул баракка кайтып, кийинки мугалимди тандаңыз.</p>
+<p class="lead">Ар бир мугалимди басып, 5 суроого жооп бериңиз. Атыңыз жазылбайт. Жөнөткөндөн кийин «‹ Тизмеге кайтуу» баскычын басып, кийинки мугалимди тандаңыз.</p>
 <div class="prog" aria-live="polite"><div class="bar"><i id="pb"></i></div><span id="pt">0 / 13</span></div>
 <ul>
 <li><a class="row" data-t="toktosunova" href="https://airtable.com/appss2GhR4Xpse3uw/pag6FsJDCH0Vjwm6h/form"><span class="av" aria-hidden="true">ТГ</span><span class="txt"><span class="subj">Кыргыз тили, Кыргыз адабияты, Акыл эмгегинин маданияты</span><span class="who">Токтосунова Гүлайым Сыдыковна</span></span><span class="go">Баа берүү</span></a></li>
@@ -73,6 +84,9 @@ display:grid;place-items:center;color:#182e14;font-weight:800;font-size:17px}
 </ul>
 <p class="note">Башка класстасызбы? <a href="../okuuchular/">Классыңызды тандаңыз</a></p>
 </main>
+<div id="ov" role="dialog" aria-modal="true" aria-labelledby="ovt">
+<div class="bar2"><button id="back" type="button">‹ Тизмеге кайтуу</button><div id="ovt"></div></div>
+</div>
 <script>
 (function(){
   var KEY = "bj-baa:8v:" + new Date().toISOString().slice(0,7);
@@ -89,9 +103,44 @@ display:grid;place-items:center;color:#182e14;font-weight:800;font-size:17px}
     document.getElementById("pt").textContent = k + " / " + rows.length;
     document.getElementById("pb").style.width = (rows.length ? 100 * k / rows.length : 0) + "%";
   }
+  var ov = document.getElementById("ov"), ovt = document.getElementById("ovt"),
+      cur = null, fr = null, pushed = false, skip = false;
+  function embed(u){ return u.replace("https://airtable.com/", "https://airtable.com/embed/"); }
+  function open(a){
+    cur = a.dataset.t;
+    ovt.innerHTML = "<b>" + a.querySelector(".subj").innerHTML + "</b><br>" + a.querySelector(".who").innerHTML;
+    // Ар жолу жаңы iframe: браузердин тарыхына кошумча кадам кошулбайт
+    fr = document.createElement("iframe");
+    fr.title = "Баалоо формасы";
+    fr.src = embed(a.href);
+    ov.appendChild(fr);
+    ov.classList.add("on");
+    document.documentElement.classList.add("lock");
+    try { history.pushState({f: cur}, ""); pushed = true; } catch(e) { pushed = false; }
+    document.getElementById("back").focus();
+  }
+  function close(){
+    if (!cur) return;
+    var d = load(); d[cur] = 1; save(d); cur = null;
+    ov.classList.remove("on");
+    document.documentElement.classList.remove("lock");
+    if (fr) { fr.remove(); fr = null; }
+    paint();
+  }
   document.querySelectorAll("a.row").forEach(function(a){
-    a.addEventListener("click", function(){ var d = load(); d[a.dataset.t] = 1; save(d); });
+    a.addEventListener("click", function(e){ e.preventDefault(); open(a); });
   });
+  // «Тизмеге кайтуу» баскычы
+  document.getElementById("back").addEventListener("click", function(){
+    close();
+    if (pushed) { pushed = false; skip = true; history.back(); }
+  });
+  // Телефондун «артка» баскычы
+  window.addEventListener("popstate", function(){
+    if (skip) { skip = false; return; }
+    pushed = false; close();
+  });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && cur) document.getElementById("back").click(); });
   window.addEventListener("pageshow", paint);
   paint();
 })();
